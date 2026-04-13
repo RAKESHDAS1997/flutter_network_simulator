@@ -1,7 +1,8 @@
 name: flutter_network_simulator
-description: "A new Flutter package project."
+description: "A Flutter package to simulate network delay, failures, and testing scenarios."
 version: 0.0.1
-homepage:
+homepage: https://github.com/RAKESHDAS1997/flutter_network_simulator
+repository: https://github.com/RAKESHDAS1997/flutter_network_simulator
 
 environment:
   sdk: ^3.10.1

@@ -1,40 +1,71 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Flutter Network Simulator
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A Flutter package to simulate network conditions like slow internet, API failures, and delays for testing UI and API behavior.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+---
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## ✨ Features
 
-## Features
+- 🐢 Simulate slow network (latency)
+- ❌ Simulate random API failures
+- ⚙️ Adjustable failure rate (0% – 100%)
+- 🎛 Built-in debug control panel UI
+- 🔌 Easy integration with Dio interceptor
+- 📱 Works on real devices (simulation-based)
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+---
 
-## Getting started
+## 🚀 Getting Started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add dependency in your `pubspec.yaml`:
 
-## Usage
+```yaml
+dependencies:
+  flutter_network_simulator: ^0.0.1
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
 
-```dart
-const like = 'sample';
-```
+  📦 Usage
 
-## Additional information
+1️⃣ Enable Simulator
+NetworkSimulator.enabled = true;
+NetworkSimulator.speed = NetworkSpeed.slow;
+NetworkSimulator.failureRate = 0.3;
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
-# flutter_network_simulator
+2️⃣ Add Dio Interceptor
+
+final dio = Dio();
+
+dio.interceptors.add(NetworkSimulatorInterceptor());
+
+3️⃣ Use Debug Panel (Optional)
+NetworkSimulatorPanel()
+
+ Example
+ElevatedButton(
+  onPressed: () async {
+    try {
+      final res = await dio.get("https://jsonplaceholder.typicode.com/posts");
+      print("Success");
+    } catch (e) {
+      print("Error: $e");
+    }
+  },
+  child: Text("Call API"),
+)
+
+Use Cases
+Test slow network UI (loaders, shimmer)
+Handle API failure scenarios
+Improve user experience under poor network
+Debug retry mechanisms
+
+⚠️ Note
+
+This package does not control real internet speed.
+It simulates network conditions inside your app for testing purposes.
+
+🤝 Contributing
+
+Feel free to contribute by creating issues or pull requests on GitHub:
+
+👉 https://github.com/RAKESHDAS1997/flutter_network_simulator

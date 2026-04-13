@@ -1,4 +1,3 @@
-library flutter_network_simulator;
 
 export 'src/simulator.dart';
 export 'src/interceptor.dart';

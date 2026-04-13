@@ -8,14 +8,13 @@ class NetworkSimulator {
 
   static Duration get delay {
     switch (speed) {
-      case NetworkSpeed.slow:
-        return const Duration(seconds: 3);
-      case NetworkSpeed.medium:
-        return const Duration(seconds: 1);
-      case NetworkSpeed.fast:
-      default:
-        return const Duration(milliseconds: 100);
-    }
+  case NetworkSpeed.slow:
+    return const Duration(seconds: 3);
+  case NetworkSpeed.medium:
+    return const Duration(seconds: 1);
+  case NetworkSpeed.fast:
+    return const Duration(milliseconds: 100);
+}
   }
 
   static bool shouldFail() {
